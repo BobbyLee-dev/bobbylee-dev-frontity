@@ -3,6 +3,7 @@ import { connect } from 'frontity';
 import Link from './link';
 import List from './list';
 import Post from './post';
+import Page from './page';
 
 const Root = ({ state }) => {
   const data = state.source.get(state.router.link)
@@ -18,7 +19,7 @@ const Root = ({ state }) => {
       <main>
         {data.isArchive && <List />}
         {data.isPost && <Post />}
-        {data.isPage && <Post />}
+        {data.isPage && <Page />}
       </main>
     </>
   );
