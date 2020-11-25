@@ -1,15 +1,15 @@
-import React from 'react';
-import { connect, Global, css, styled } from 'frontity';
-import Link from './link';
-import List from './list';
-import Post from './post';
-import Page from './page';
+import React from "react";
+import { connect, Global, css, styled } from "frontity";
+import Link from "./link";
+import List from "./list";
+import Post from "./post";
+import Page from "./page";
 
 const Root = ({ state }) => {
-  const data = state.source.get(state.router.link)
+  const data = state.source.get(state.router.link);
   return (
     <>
-      <Global 
+      <Global
         styles={css`
           html {
             font-family: sans-serif;
@@ -17,14 +17,13 @@ const Root = ({ state }) => {
               margin: 0;
             }
           }
-
         `}
       />
       <Header>
         <nav>
           <Link href="/">Home</Link>
           <Link href="/page/2">More Posts</Link>
-          <Link href="/lorem-ipsum">Lorem Ipsum</Link>
+          <Link href="/lorem-ipsum">Lorem Ipsum</Link>∏
         </nav>
         <h1>Frontity Sapphire Theme</h1>
       </Header>
@@ -36,7 +35,7 @@ const Root = ({ state }) => {
       </main>
     </>
   );
-}
+};
 
 export default connect(Root);
 

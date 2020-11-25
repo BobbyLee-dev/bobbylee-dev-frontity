@@ -1,15 +1,14 @@
 import Root from "./components";
 
-
 export default {
   name: "frontity-sapphire-theme",
   roots: {
-    theme: Root
+    theme: Root,
   },
   state: {
-    theme: {}
+    theme: {},
   },
   actions: {
-    theme: {}
-  }
+    theme: {},
+  },
 };
