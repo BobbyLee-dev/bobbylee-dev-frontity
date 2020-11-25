@@ -4,6 +4,7 @@ import Link from "./link";
 import List from "./list";
 import Post from "./post";
 import Page from "./page";
+import cssVars from "./styles/css-vars";
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
@@ -13,6 +14,7 @@ const Root = ({ state, actions }) => {
         styles={css`
           html {
             font-family: sans-serif;
+            background-color: ${cssVars.primaryColor};
             body {
               margin: 0;
             }
