@@ -4,23 +4,14 @@ import Link from "./link";
 import List from "./list";
 import Post from "./post";
 import Page from "./page";
-import cssVars from "./styles/css-vars";
+import globalStyles from "./styles/global-styles";
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
+
   return (
     <>
-      <Global
-        styles={css`
-          html {
-            font-family: sans-serif;
-            background-color: ${cssVars.primaryColor};
-            body {
-              margin: 0;
-            }
-          }
-        `}
-      />
+      <Global styles={globalStyles} />
       <Head>
         <title>Hi lol</title>
       </Head>
@@ -40,8 +31,9 @@ const Root = ({ state, actions }) => {
 
         <h1>Frontity Sapphire Theme</h1>
       </Header>
-      <p>Current URL: {state.router.link}</p>
+
       <main>
+        <p>Current URL: {state.router.link}</p>
         {data.isArchive && <List />}
         {data.isPost && <Post />}
         {data.isPage && <Page />}
