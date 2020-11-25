@@ -1,11 +1,11 @@
 import React from "react";
-import { connect, Global, css, styled } from "frontity";
+import { connect, Global, css, styled, Head } from "frontity";
 import Link from "./link";
 import List from "./list";
 import Post from "./post";
 import Page from "./page";
 
-const Root = ({ state }) => {
+const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
   return (
     <>
@@ -19,12 +19,23 @@ const Root = ({ state }) => {
           }
         `}
       />
+      <Head>
+        <title>Hi lol</title>
+      </Head>
       <Header>
-        <nav>
-          <Link href="/">Home</Link>
-          <Link href="/page/2">More Posts</Link>
-          <Link href="/lorem-ipsum">Lorem Ipsum</Link>∏
-        </nav>
+        {state.theme.isMenuOpen ? (
+          <>
+            <button onClick={actions.theme.closeMenu}>Close</button>
+            <nav>
+              <Link href="/">Home</Link>
+              <Link href="/page/2">More Posts</Link>
+              <Link href="/lorem-ipsum">Lorem Ipsum</Link>∏
+            </nav>
+          </>
+        ) : (
+          <button onClick={actions.theme.openMenu}>Open</button>
+        )}
+
         <h1>Frontity Sapphire Theme</h1>
       </Header>
       <p>Current URL: {state.router.link}</p>
@@ -32,6 +43,7 @@ const Root = ({ state }) => {
         {data.isArchive && <List />}
         {data.isPost && <Post />}
         {data.isPage && <Page />}
+        {data.isHome && <div>home page lol</div>}
       </main>
     </>
   );
